@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: java-maven-app
-          image: tharindurajapaksha/complete-production-e2e-pipeline
+          image: tharindurajapaksha/complete-production-e2e-pipeline:1.0.0-27
           ports:
             - containerPort: 8080
