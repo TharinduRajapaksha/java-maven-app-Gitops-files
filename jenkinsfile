@@ -18,7 +18,7 @@ pipeline{
         stage("Checkout from SC in GitHub"){
             steps{
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/TharinduRajapaksha/java-maven-app-Gitops-files' // Checkout the code from the GitHub repository
-                checkout scm // Checkout the code from the SCMM
+                checkout scm // Checkout the code from the SCMMm
             }
 
             
