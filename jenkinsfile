@@ -40,10 +40,10 @@ pipeline{
         stage("Push the Changed Deployment File to GitHub"){
             steps{
                 sh """
-                    git config --global user.name "TharinduRajapaksha" // Set the Git user name
-                    git config --global user.email "tharindu.tahraka.rajapaksha@gmail.com" // Set the Git user email
-                    git add deployment.yaml // Add the changed deployment file
-                    git comit -m "Updated deployment file with new image tag" // Commit the changes
+                    git config --global user.name "TharinduRajapaksha"
+                    git config --global user.email "tharindu.tahraka.rajapaksha@gmail.com"
+                    git add deployment.yaml
+                    git comit -m "Updated deployment file with new image tag"
 
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitTeeUsername: 'Default')]) {
