@@ -31,11 +31,31 @@ pipeline{
                     sed -i 's/${APP_NAME}.*/${APP_NAME}|${IMAGE_TAG}/g' deployment.yaml
                     cat deployment.yaml
                 ***
+
+            }
+
+            
+        }
+
+        stage("Push the Changed Deployment File to GitHub"){
+            steps{
+                sh ***
+                    git config --global user.name "TharinduRajapaksha" // Set the Git user name
+                    git config --global user.email "tharindu.tahraka.rajapaksha@gmail.com" // Set the Git user email
+                    git add deployment.yaml // Add the changed deployment file
+                    git comit -m "Updated deployment file with new image tag" // Commit the changes
+
+                ***
+                withCredentials([gitUsernamePassword(credentialsId: 'github', gitTeeUsername: 'Default')]) {
+                    sh "git push https://github.com/TharinduRajapaksha/java-maven-app-Gitops-files.git HEAD:main"
+                
+                }
                 
             }
 
             
         }
+
 
 
 
