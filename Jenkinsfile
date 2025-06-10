@@ -43,7 +43,7 @@ pipeline{
                     git config --global user.name "TharinduRajapaksha"
                     git config --global user.email "tharindu.tahraka.rajapaksha@gmail.com"
                     git add deployment.yaml
-                    git comit -m "Updated deployment file with new image tag"
+                    git commit -m "Updated deployment file with new image tag"
 
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitTeeUsername: 'Default')]) {
