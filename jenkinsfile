@@ -1,0 +1,30 @@
+pipeline{
+    agent{
+        label "jenkins-agent"
+    }
+
+    environment{
+        APP_NAME = "complete-production-e2e-pipeline"
+    }
+
+    stages{
+
+        stage("Cleanup Workspace"){
+            steps{
+                cleanWs() // Clean the workspace before starting the build
+            }
+        }
+
+        stage("Checkout from SC in GitHub"){
+            steps{
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/TharinduRajapaksha/java-maven-app-Gitops-files'
+                checkout scm // Checkout the code from the SCMM
+            }
+
+            
+        }
+
+
+        
+    }
+}
